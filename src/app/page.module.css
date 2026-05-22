@@ -206,6 +206,21 @@
   100% { transform: translateY(0px) translateZ(50px); }
 }
 
+@media (max-width: 768px) {
+  .floatingBadge {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  .floatingBadge1 {
+    left: -10px;
+    bottom: -10px;
+  }
+  .floatingBadge2 {
+    right: -10px;
+    top: -10px;
+  }
+}
+
 .guaranteeChecks {
   display: flex;
   flex-wrap: wrap;
@@ -490,6 +505,18 @@
 .rationalStats strong {
   font-size: 2rem;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .rationalBox {
+    padding: 2.5rem 1.5rem;
+  }
+  .rationalStats {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .emotionalGrid {
@@ -782,7 +809,7 @@
 }
 
 .priceTag {
-  font-size: 6rem;
+  font-size: clamp(3.5rem, 15vw, 6rem);
   font-weight: 900;
   background: linear-gradient(135deg, var(--accent-teal), #014f58);
   -webkit-background-clip: text;
