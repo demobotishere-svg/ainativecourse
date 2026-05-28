@@ -690,34 +690,37 @@
   color: white;
 }
 
-/* Testimonials Masonry */
+/* Testimonials Grid */
 .masonryGrid {
-  column-count: 3;
-  column-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
 }
 
 @media (max-width: 992px) {
   .masonryGrid {
-    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .masonryGrid {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 }
 
 .testimonialCard {
-  break-inside: avoid;
   background: white;
   border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 2.5rem;
-  margin-bottom: 2rem;
   box-shadow: 0 10px 20px rgba(0,0,0,0.03);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .testimonialCard::before {
@@ -915,4 +918,375 @@
   text-align: center;
   color: white;
   background: linear-gradient(135deg, var(--accent-teal), #014f58);
+}
+
+/* Outcomes New Math Design */
+.mathSection {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mathBlockTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* This is you now (Flow) */
+.youNowBox {
+  background: white;
+  border-radius: 20px;
+  padding: 3.5rem 2rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.youNowFlow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.youNowStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  gap: 1rem;
+}
+
+.stepIcon {
+  width: 48px;
+  height: 48px;
+  background: #f1f5f9;
+  color: #64748b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  z-index: 2;
+}
+
+.youNowStep p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.stepArrow {
+  height: 2px;
+  flex: 0.5;
+  background: linear-gradient(to right, #e2e8f0 50%, transparent 50%);
+  background-size: 10px 2px;
+  position: relative;
+}
+
+.stepArrow::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: -4px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #cbd5e1;
+}
+
+/* Transformation Cards (What you become) */
+.becomeCardsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.transformationCard {
+  display: grid;
+  grid-template-columns: 1fr 60px 1.5fr;
+  align-items: stretch;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.04);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transformationCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(2, 122, 136, 0.1);
+}
+
+.manualSide {
+  padding: 2rem;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sideLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+}
+
+.sideLabelHighlight {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-teal);
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+}
+
+.becomeStrike {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  text-decoration: line-through;
+  margin: 0;
+}
+
+.transformationArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc, white);
+  color: #cbd5e1;
+  border-left: 1px dashed #e2e8f0;
+  border-right: 1px dashed #e2e8f0;
+}
+
+.aiSide {
+  padding: 2rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.aiSide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--accent-teal), var(--accent-orange));
+}
+
+.becomeResult {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.mathConclusionBox {
+  margin-top: 3rem;
+  background: linear-gradient(135deg, rgba(2, 122, 136, 0.05), rgba(255, 121, 0, 0.05));
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(2, 122, 136, 0.1);
+}
+
+.mathConclusionText {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .youNowFlow {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .stepArrow {
+    width: 2px;
+    height: 30px;
+    flex: unset;
+    background: linear-gradient(to bottom, #e2e8f0 50%, transparent 50%);
+    background-size: 2px 10px;
+  }
+  .stepArrow::after {
+    right: -4px;
+    top: auto;
+    bottom: -5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #cbd5e1;
+  }
+  .transformationCard {
+    grid-template-columns: 1fr;
+  }
+  .transformationArrow {
+    height: 40px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px dashed #e2e8f0;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+  .transformationArrow svg {
+    transform: rotate(90deg);
+  }
+  .aiSide::before {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent-teal), var(--accent-orange));
+  }
+}
+
+/* Role Grid (Who it is for) */
+.roleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.roleCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.roleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(2, 122, 136, 0.1);
+  border-color: rgba(2, 122, 136, 0.2);
+}
+
+.roleTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+}
+
+.roleDesc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Matrix CTA Section */
+.matrixSection {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.matrixSection::before {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle at bottom left, rgba(2, 122, 136, 0.08), transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.matrixGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .matrixGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.matrixLeft {
+  color: var(--text-primary);
+  padding-right: 2rem;
+}
+
+.pillBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.pillImage {
+  width: 220px;
+  height: 160px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid rgba(2, 122, 136, 0.1);
+  flex-shrink: 0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.bluePillTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+.pillDivider {
+  width: 60px;
+  height: 3px;
+  background: var(--accent-teal);
+  margin: 2.5rem 0;
+}
+
+.redPillDesc {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.matrixDisclaimer {
+  margin-top: 3rem;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-weight: 500;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.matrixRight {
+  position: relative;
+  z-index: 2;
+}
+
+.matrixRight > div {
+  max-width: 100%;
 }

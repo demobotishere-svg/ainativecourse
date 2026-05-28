@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from './page.module.css';
+import LeadCaptureForm from '../components/LeadCaptureForm';
 
 export default function Home() {
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -86,7 +87,7 @@ export default function Home() {
             <a href="#curriculum" className="btn-text">Curriculum</a>
             <a href="#instructor" className="btn-text">Instructor</a>
             <a href="#faq" className="btn-text">FAQ</a>
-            <a href="#enroll" className="btn btn-teal" style={{marginLeft: '1rem'}}>Enrol</a>
+            <a href="#matrix-cta" className="btn btn-teal" style={{marginLeft: '1rem'}}>Enrol</a>
           </div>
           <div className={styles.mobileMenuBtn} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div className={styles.hamburgerLine} style={{ transform: isMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }}></div>
@@ -100,7 +101,7 @@ export default function Home() {
              <a href="#curriculum" className={styles.mobileLink} onClick={() => setIsMenuOpen(false)}>Curriculum</a>
              <a href="#instructor" className={styles.mobileLink} onClick={() => setIsMenuOpen(false)}>Instructor</a>
              <a href="#faq" className={styles.mobileLink} onClick={() => setIsMenuOpen(false)}>FAQ</a>
-             <a href="#enroll" className="btn btn-teal" style={{marginTop: '1rem'}} onClick={() => setIsMenuOpen(false)}>Enrol — ₹5,000</a>
+             <a href="#matrix-cta" className="btn btn-teal" style={{marginTop: '1rem'}} onClick={() => setIsMenuOpen(false)}>Enrol — ₹5,000</a>
           </div>
         )}
       </nav>
@@ -111,26 +112,28 @@ export default function Home() {
           <div className={styles.twoColumnHero}>
             <div className={styles.heroLeft}>
               <h1 className={`${styles.heroTitle} reveal hero-reveal`}>
-                From <span className="underline-orange">clutter</span> to <span className="highlight-orange">clarity</span> with AI.
+                From AI <span className="underline-orange">clutter</span> to AI <span className="highlight-orange">clarity</span>.
               </h1>
               <p className={`${styles.heroDescription} reveal hero-reveal delay-100`}>
-                A 20-hour weekend course, over one month, on how to actually think with AI at work — not which tool to download next. For working professionals who feel quietly behind, and aren't fooled by the hype.
+                <span style={{
+                  display: 'inline-block',
+                  fontWeight: 700,
+                  fontSize: 'clamp(1.6rem, 4vw, 2.2rem)',
+                  color: 'var(--text-primary)',
+                  margin: '1.2rem 0',
+                  lineHeight: '1.4'
+                }}>
+                  AI is not your enemy. Don't fight it. <span style={{
+                    background: 'linear-gradient(120deg, var(--accent-teal), var(--accent-orange))',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    fontWeight: 900
+                  }}>Boss it.</span>
+                </span>
               </p>
               
-              <div className={`${styles.heroActions} reveal hero-reveal delay-200`}>
-                <a href="#enroll" className="btn btn-teal" style={{fontSize: '1.25rem', padding: '1.2rem 2.5rem', width: '100%'}}>
-                  Reserve a seat — ₹5,000
-                </a>
-                <a href="#audit" className="btn btn-outline" style={{fontSize: '1.1rem', padding: '1.2rem 2.5rem', width: '100%', display: 'block', textAlign: 'center'}}>
-                  Try the free 10-task audit
-                </a>
-              </div>
-              <div className={`${styles.guaranteeChecks} reveal hero-reveal delay-300`} style={{marginTop: '1.5rem'}}>
-                <span>Live cohort</span>
-                <span>•</span>
-                <span>No ₹30k upsell</span>
-                <span>•</span>
-                <span>Refund after week 1</span>
+              <div className="reveal hero-reveal delay-200" style={{ marginTop: '1.5rem' }}>
+                <LeadCaptureForm />
               </div>
             </div>
             <div className={`${styles.heroRight} reveal hero-reveal delay-200`}>
@@ -148,51 +151,105 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className={styles.statsBar}>
-        <div className="container">
-          <div className={`${styles.statsGrid} reveal`}>
-            <div className={styles.statItem}>
-              <div className={styles.statNumber}>20</div>
-              <div className={styles.statLabel}>hours, live</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNumber}>4</div>
-              <div className={styles.statLabel}>weekends</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNumber}>₹5,000</div>
-              <div className={styles.statLabel}>one-time purchase</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNumber}>0</div>
-              <div className={styles.statLabel}>upsells</div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* The Problem */}
-      <section id="outcomes" className="section section-white">
+      <section id="outcomes" className="section">
         <div className="container">
-          <div className={styles.twoColumn}>
-            <div className={`reveal delay-100 ${styles.imageCol}`}>
-              <img src="/images/clutter_resolved.png" alt="AI Clutter resolving to structured lines" className={styles.contentImage} />
-            </div>
-            <div className={`reveal delay-200`}>
-              <div className="badge-outline" style={{marginBottom: '1.5rem', marginLeft: 0}}>Industry insight</div>
-              <h2 className="sectionTitle" style={{fontSize: '2.5rem', textAlign: 'left'}}>The problem is not access to AI. <br/><span className="text-orange">It is knowing what work belongs to it.</span></h2>
-              <div className={styles.statHighlight}>
-                <span className={styles.bigStat}>71%</span>
-                <p>of knowledge workers say AI tools made their week more chaotic, not less.</p>
-                <small>Microsoft Work Trend Index, 2024 (paraphrased)</small>
+          <div className={`${styles.centerHeader} reveal`}>
+            <div className="badge-outline" style={{marginBottom: '1.5rem'}}>Industry insight</div>
+            <h2 className="sectionTitle" style={{fontSize: '3rem'}}>The new math: <br/><span className="text-orange">1 Person + AI = Total Powerhouse</span></h2>
+          </div>
+          
+          <div className={`${styles.mathSection} reveal delay-100`}>
+            <div>
+              <h3 className={styles.mathBlockTitle}>The Exhausting Loop (You Now)</h3>
+              <div className={styles.youNowBox}>
+                <div className={styles.youNowFlow}>
+                  <div className={styles.youNowStep}>
+                    <div className={styles.stepIcon}>01</div>
+                    <p>Ask ChatGPT a question</p>
+                  </div>
+                  <div className={styles.stepArrow}></div>
+                  <div className={styles.youNowStep}>
+                    <div className={styles.stepIcon}>02</div>
+                    <p>Copy generated text</p>
+                  </div>
+                  <div className={styles.stepArrow}></div>
+                  <div className={styles.youNowStep}>
+                    <div className={styles.stepIcon}>03</div>
+                    <p>Paste into email / doc</p>
+                  </div>
+                  <div className={styles.stepArrow}></div>
+                  <div className={styles.youNowStep} style={{opacity: 0.8}}>
+                    <div className={styles.stepIcon} style={{background: '#fee2e2', color: '#dc2626', borderColor: '#fca5a5'}}>04</div>
+                    <p>Back to the manual grind</p>
+                  </div>
+                </div>
               </div>
-              <div className={styles.statHighlight}>
-                <span className={styles.bigStat}>4–7</span>
-                <p>out of 10 real weekly tasks are usually AI-leverageable after you separate task from decision.</p>
-                <small>From the course audit framework</small>
+            </div>
+
+            <div>
+              <h3 className={styles.mathBlockTitle}>The AI-Native System (What You Become)</h3>
+              <div className={styles.becomeCardsGrid}>
+                {/* Card 1 */}
+                <div className={styles.transformationCard}>
+                  <div className={styles.manualSide}>
+                    <span className={styles.sideLabel}>Old Way</span>
+                    <p className={styles.becomeStrike}>Typing meeting summaries</p>
+                  </div>
+                  <div className={styles.transformationArrow}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </div>
+                  <div className={styles.aiSide}>
+                    <span className={styles.sideLabelHighlight}>AI-Native System</span>
+                    <p className={styles.becomeResult}>System joins the call, transcribes, extracts action items, logs tasks to your project board.</p>
+                  </div>
+                </div>
+
+                {/* Card 2 */}
+                <div className={styles.transformationCard}>
+                  <div className={styles.manualSide}>
+                    <span className={styles.sideLabel}>Old Way</span>
+                    <p className={styles.becomeStrike}>Digging for data</p>
+                  </div>
+                  <div className={styles.transformationArrow}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </div>
+                  <div className={styles.aiSide}>
+                    <span className={styles.sideLabelHighlight}>AI-Native System</span>
+                    <p className={styles.becomeResult}>System reads requests, pulls files from your database, hands you a pre-drafted response.</p>
+                  </div>
+                </div>
+
+                {/* Card 3 */}
+                <div className={styles.transformationCard}>
+                  <div className={styles.manualSide}>
+                    <span className={styles.sideLabel}>Old Way</span>
+                    <p className={styles.becomeStrike}>Manual scheduling</p>
+                  </div>
+                  <div className={styles.transformationArrow}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </div>
+                  <div className={styles.aiSide}>
+                    <span className={styles.sideLabelHighlight}>AI-Native System</span>
+                    <p className={styles.becomeResult}>System cross-references calendars, qualifies requests, books deep-work blocks — zero back-and-forth.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className={styles.mathConclusionBox}>
+                <p className={styles.mathConclusionText}>
+                  <strong>AI-Native Design Thinking:</strong> stop manually executing repetitive tasks. Start designing systems that execute them for you. No code required.
+                </p>
               </div>
             </div>
+          </div>
+          
+          <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
+            <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
+              Unlock the Blueprint & Preview Video
+            </a>
           </div>
         </div>
       </section>
@@ -231,7 +288,7 @@ export default function Home() {
       </section>
 
       {/* Who it is for */}
-      <section className="section section-white">
+      <section className="section">
         <div className="container">
           <div className={`${styles.centerHeader} reveal`}>
             <div className="badge-outline" style={{marginBottom: '1rem'}}>Who it is for</div>
@@ -239,16 +296,59 @@ export default function Home() {
             <p className="paragraph">This isn't a developer course in disguise. If you read briefs, write documents, talk to customers, plan things, or make decisions for a living — you qualify.</p>
             <p className="paragraph" style={{fontWeight: 600}}>The only prerequisite: you can write a clear email and you have a real job with real problems.</p>
           </div>
-          <div className={`${styles.pillGrid} reveal delay-100`}>
+          <div className={`${styles.roleGrid} reveal delay-100`}>
             {[
-              "Marketing & brand", "Sales & BD", "HR & recruiting", "Operations",
-              "Finance & accounting", "Legal & compliance", "Product & design", "Consulting",
-              "Teachers & trainers", "Doctors & clinicians", "Founders & solopreneurs",
-              "Students & career-switchers", "Writers & creators", "Real estate & retail"
-            ].map((role, i) => (
-              <div key={i} className={styles.rolePill}>{role}</div>
+              {
+                id: '01',
+                role: 'Marketing & Brand',
+                desc: 'Pipelines ingest briefs, auto-generate mood boards, and format assets for multiple platforms instantly.'
+              },
+              {
+                id: '02',
+                role: 'Sales & BD',
+                desc: 'Automate prospect qualification and calendar booking. Only talk to buyers ready to close.'
+              },
+              {
+                id: '03',
+                role: 'HR & Recruiting',
+                desc: 'Automate candidate screening, interview scheduling, and end-to-end employee onboarding.'
+              },
+              {
+                id: '04',
+                role: 'Operations & Logistics',
+                desc: 'Extract data from unstructured emails, update inventory sheets, and generate daily reports.'
+              },
+              {
+                id: '05',
+                role: 'Finance & Accounting',
+                desc: 'Ingest hundreds of PDF invoices, reconcile against bank statements, and draft ledger entries.'
+              },
+              {
+                id: '06',
+                role: 'Product & Design',
+                desc: 'Generate PRDs from meeting notes, map requirement docs, and create predictive user flows.'
+              },
+              {
+                id: '07',
+                role: 'Founders & Solopreneurs',
+                desc: 'Backend systems handle multi-channel leads, product delivery, and support while you scale.'
+              },
+              {
+                id: '08',
+                role: 'Consultants & Analysts',
+                desc: 'System reads client requests, pulls files from databases, and hands you pre-drafted research.'
+              },
+              {
+                id: '09',
+                role: 'Legal & Compliance',
+                desc: 'Agents review long contracts, flag missing clauses, and summarize risk profiles instantly.'
+              }
+            ].map((item, i) => (
+              <div key={i} className={styles.roleCard}>
+                <h3 className={styles.roleTitle}>{item.role}</h3>
+                <p className={styles.roleDesc}>{item.desc}</p>
+              </div>
             ))}
-            <div className={`${styles.rolePill} ${styles.rolePillAccent}`}>Anyone with a laptop job</div>
           </div>
         </div>
       </section>
@@ -279,11 +379,17 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
+            <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
+              Unlock the Blueprint & Preview Video
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Curriculum Section */}
-      <section id="curriculum" className="section section-white">
+      <section id="curriculum" className="section">
         <div className="container">
           <div className={styles.twoColumn}>
             <div className="reveal">
@@ -313,6 +419,12 @@ export default function Home() {
             <div className={`reveal delay-200 ${styles.imageCol}`}>
               <img src="/images/chatbot_laptop.png" alt="Laptop with chatbot and sticky notes" className={styles.contentImage} />
             </div>
+          </div>
+
+          <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
+            <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
+              Unlock the Blueprint & Preview Video
+            </a>
           </div>
         </div>
       </section>
@@ -355,11 +467,17 @@ export default function Home() {
            <p className="paragraph" style={{textAlign: 'center', fontStyle: 'italic', maxWidth: '800px', margin: '4rem auto 0 auto'}}>
              To be clear: nobody quits their job because of a weekend course. The goal is one small thing that actually ships — and a method you can keep using long after the cohort ends.
            </p>
+
+           <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
+             <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
+               Unlock the Blueprint & Preview Video
+             </a>
+           </div>
         </div>
       </section>
 
       {/* The Honest Answer */}
-      <section className="section section-white">
+      <section className="section">
         <div className="container">
           <div className={`${styles.centerHeader} reveal`}>
             <div className="badge-outline" style={{marginBottom: '1rem'}}>The honest answer</div>
@@ -408,6 +526,12 @@ export default function Home() {
             <h3 style={{fontSize: '1.75rem', fontWeight: 600, maxWidth: '800px', margin: '0 auto'}}>"₹5,000 to stop feeling behind and start feeling in control — taught by someone who actually knows."</h3>
             <p className="text-secondary" style={{marginTop: '1rem'}}>Everything else on this page is detail.</p>
           </div>
+
+          <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
+            <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
+              Unlock the Blueprint & Preview Video
+            </a>
+          </div>
         </div>
       </section>
 
@@ -441,11 +565,17 @@ export default function Home() {
               <p className="text-secondary" style={{fontSize: '0.9rem', marginTop: '2rem', fontStyle: 'italic'}}>Full background, links, and prior work shared on enrolment — verify, don't just trust.</p>
             </div>
           </div>
+
+          <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
+            <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
+              Unlock the Blueprint & Preview Video
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Fit Check */}
-      <section className="section section-white">
+      <section className="section">
         <div className="container">
           <div className={`${styles.centerHeader} reveal`}>
             <h2 className="sectionTitle">Fit check. <span className="text-orange">This is for some people. Not everyone.</span></h2>
@@ -469,6 +599,12 @@ export default function Home() {
                 <li>You can't commit to four weekends. The cohort needs you present.</li>
               </ul>
             </div>
+          </div>
+
+          <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
+            <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
+              Unlock the Blueprint & Preview Video
+            </a>
           </div>
         </div>
       </section>
@@ -496,11 +632,17 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
+            <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
+              Unlock the Blueprint & Preview Video
+            </a>
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="section section-white">
+      <section id="faq" className="section">
         <div className="container">
           <div className={`${styles.centerHeader} reveal`}>
             <h2 className="sectionTitle">FAQ</h2>
@@ -533,40 +675,52 @@ export default function Home() {
             <p className="text-secondary" style={{maxWidth: '700px', margin: '0 auto', marginBottom: '1rem'}}>It won't make you an ML engineer. It won't teach you to fine-tune models or read papers. It won't hand you a magic prompt. Anyone selling one is selling you a feeling, not a skill. It won't replace the part where you sit with a real problem at your real job and think.</p>
             <p style={{fontWeight: 600}}>If that's a dealbreaker, I'd rather you know now than on day one.</p>
           </div>
+
+          <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
+            <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
+              Unlock the Blueprint & Preview Video
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Pricing / CTA */}
-      <section id="enroll" className="section" style={{backgroundColor: '#fffcf5'}}>
-        <div className="container">
-          <div className={`${styles.ctaBox} reveal`}>
-            <div className={styles.ctaGlow}></div>
-            <h2 className="sectionTitle" style={{fontSize: '3.5rem', marginBottom: '1rem', position: 'relative', zIndex: 2}}>One price. One time. <br/><span className="text-orange">No upsell at the end.</span></h2>
-            <div className={styles.priceTag} style={{position: 'relative', zIndex: 2}}>₹5,000</div>
+      {/* Matrix CTA Section */}
+      <section id="matrix-cta" className={styles.matrixSection}>
+        <div className="container" style={{maxWidth: '1200px'}}>
+          <div className={styles.matrixGrid}>
             
-            <div className={styles.includesList} style={{position: 'relative', zIndex: 2}}>
-              <h4>What's included</h4>
-              <ul>
-                <li>20 hours of live teaching, across 4 weekends</li>
-                <li>The 10-task audit, applied to your real job</li>
-                <li>One deployed chatbot you own</li>
-                <li>Two agent designs for your role</li>
-                <li>Lifetime access to recordings & materials</li>
-                <li>A small cohort — questions actually get answered</li>
-              </ul>
+            {/* Left Content */}
+            <div className={styles.matrixLeft}>
+              <div className="reveal">
+                <div className={styles.pillBox}>
+                  <img src="/images/blue_pill_man.png" alt="Frustrated man working late" className={styles.pillImage} />
+                  <div>
+                    <h2 className={styles.bluePillTitle}>Blue pill: log back in tomorrow. Continue the 14-hour grind.</h2>
+                  </div>
+                </div>
+                
+                <div className={styles.pillDivider}></div>
+                
+                <div className={styles.pillBox}>
+                  <img src="/images/happy_professional.png" alt="Happy confident professional" className={styles.pillImage} />
+                  <div>
+                    <p className={styles.redPillDesc}>
+                      Or take the red pill. Step out of the mundane. Learn to manage the technology before it manages you. Claim absolute authority over your career and time.
+                    </p>
+                  </div>
+                </div>
+
+                <div className={styles.matrixDisclaimer}>
+                  Unlock the 15-minute architectural preview video + the AI-Native Design Blueprint — delivered straight to your WhatsApp.
+                </div>
+              </div>
             </div>
 
-            <div className={styles.heroActions} style={{justifyContent: 'center', marginTop: '3rem', position: 'relative', zIndex: 2}}>
-              <a href="#" className="btn btn-teal" style={{fontSize: '1.4rem', padding: '1.2rem 4rem', boxShadow: '0 10px 30px rgba(2, 122, 136, 0.3)'}}>Reserve my seat</a>
-              <span className="text-secondary" style={{fontSize: '0.9rem', marginTop: '1rem', display: 'block'}}>No card charged until the cohort is confirmed.</span>
+            {/* Right Form */}
+            <div className={`reveal delay-200 ${styles.matrixRight}`}>
+               <LeadCaptureForm />
             </div>
-            
-            <div className={styles.guaranteeBox} style={{position: 'relative', zIndex: 2}}>
-              <h4>The promise</h4>
-              <p>
-                Attend the first weekend. If you don't feel meaningfully clearer about how AI fits into your work, email me before weekend two — I refund the full ₹5,000. No form, no "exit survey", no friction. You keep the recordings.
-              </p>
-            </div>
+
           </div>
         </div>
       </section>
@@ -575,10 +729,9 @@ export default function Home() {
       <footer className={styles.footer}>
         <div className="container">
           <h2 style={{color: 'white', marginBottom: '1.5rem', fontSize: '2.5rem'}}>A year from now, will you wish you'd started?</h2>
-          <p style={{color: 'rgba(255,255,255,0.8)', maxWidth: '600px', margin: '0 auto 4rem auto', fontSize: '1.1rem'}}>Not because of urgency. Because considered things tend to compound. Four weekends now; a different relationship with your work for the rest of it.</p>
-          <div style={{display: 'flex', gap: '1.5rem', justifyContent: 'center', marginBottom: '4rem', flexWrap: 'wrap'}}>
-            <a href="#enroll" className="btn" style={{backgroundColor: 'white', color: 'var(--accent-teal)', fontSize: '1.2rem'}}>Reserve my seat — ₹5,000</a>
-            <a href="#audit" className="btn btn-outline-white" style={{fontSize: '1.2rem'}}>Try the free audit again</a>
+          <p style={{color: 'rgba(255,255,255,0.8)', maxWidth: '600px', margin: '0 auto 4rem auto', fontSize: '1.1rem'}}>Not because of urgency. Because considered things tend to compound.</p>
+          <div style={{display: 'flex', justifyContent: 'center', marginBottom: '4rem'}}>
+            <LeadCaptureForm />
           </div>
           <p style={{color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem'}}>
             Clarity. One course. One price. One promise. Email anytime.<br/>
