@@ -6,7 +6,6 @@ import styles from './page.module.css';
 import Navbar from '@/components/sections/Navbar';
 import HeroSection from '@/components/sections/HeroSection';
 import OutcomesSection from '@/components/sections/OutcomesSection';
-import ChangesSection from '@/components/sections/ChangesSection';
 import WhoIsItForSection from '@/components/sections/WhoIsItForSection';
 import AuditSection from '@/components/sections/AuditSection';
 import CurriculumSection from '@/components/sections/CurriculumSection';
@@ -69,7 +68,6 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <OutcomesSection />
-      <ChangesSection />
       <WhoIsItForSection />
       <AuditSection />
       <CurriculumSection />
