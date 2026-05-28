@@ -1,4 +1,5 @@
 import styles from '@/app/page.module.css';
+import LeadCaptureForm from '@/components/LeadCaptureForm';
 
 export default function CurriculumSection() {
   return (
@@ -35,9 +36,7 @@ export default function CurriculumSection() {
         </div>
 
         <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
-          <a href="#matrix-cta" className="btn btn-teal" style={{padding: '1.25rem 2.5rem', fontSize: '1.15rem', boxShadow: '0 10px 25px rgba(2, 122, 136, 0.3)'}}>
-            Unlock the Blueprint & Preview Video
-          </a>
+          <LeadCaptureForm />
         </div>
       </div>
     </section>

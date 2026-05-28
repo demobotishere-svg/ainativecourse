@@ -34,13 +34,7 @@ export default function HeroSection() {
           </div>
           <div className={`${styles.heroRight} reveal hero-reveal delay-200`}>
             <div className={styles.heroImageWrapper}>
-              <img src="/images/hero_workspace.png" alt="Calm workspace for learning AI" className={styles.heroImage} />
-              <div className={`${styles.floatingBadge} ${styles.floatingBadge1}`}>
-                <span className="text-teal" style={{fontSize: '1.5rem'}}>✓</span> 12,000+ Enrolled
-              </div>
-              <div className={`${styles.floatingBadge} ${styles.floatingBadge2}`}>
-                <span className="text-orange" style={{fontSize: '1.5rem'}}>✦</span> Top 5% Tools
-              </div>
+              <img src="/images/ai_native_thinking.png" alt="AI Native Workspace" className={styles.heroImage} />
             </div>
           </div>
         </div>

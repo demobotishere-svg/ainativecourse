@@ -1,4 +1,5 @@
 import styles from '@/app/page.module.css';
+import LeadCaptureForm from '@/components/LeadCaptureForm';
 
 export default function WhoIsItForSection() {
   const roles = [
