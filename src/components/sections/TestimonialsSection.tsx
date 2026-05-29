@@ -12,7 +12,7 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section id="testimonials" className="section section-white">
+    <section id="testimonials" className="section">
       <div className="container">
         <div className={`${styles.centerHeader} reveal`}>
           <div className="badge-outline" style={{marginBottom: '1rem'}}>Alumni Projects</div>
