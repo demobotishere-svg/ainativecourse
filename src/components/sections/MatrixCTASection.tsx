@@ -1,5 +1,4 @@
 import styles from '@/app/page.module.css';
-import LeadCaptureForm from '@/components/LeadCaptureForm';
 
 export default function MatrixCTASection() {
   return (
@@ -39,15 +38,6 @@ export default function MatrixCTASection() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-          
-          <div className={styles.formContainer}>
-            <div className={styles.matrixDisclaimer}>
-              Unlock the 15-minute architectural preview video + the AI-Native Design Blueprint — delivered straight to your WhatsApp.
-            </div>
-            <div className={`reveal delay-200 ${styles.formWrapper}`}>
-              <LeadCaptureForm />
             </div>
           </div>
         </div>

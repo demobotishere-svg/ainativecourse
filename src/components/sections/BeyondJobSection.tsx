@@ -1,5 +1,4 @@
 import styles from '@/app/page.module.css';
-import LeadCaptureForm from '@/components/LeadCaptureForm';
 
 export default function BeyondJobSection() {
   return (
@@ -40,10 +39,6 @@ export default function BeyondJobSection() {
          <p className="paragraph" style={{textAlign: 'center', fontStyle: 'italic', maxWidth: '800px', margin: '4rem auto 0 auto'}}>
            To be clear: nobody quits their job because of a weekend course. The goal is one small thing that actually ships — and a method you can keep using long after the cohort ends.
          </p>
-
-         <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">
-           <LeadCaptureForm />
-         </div>
       </div>
     </section>
   );

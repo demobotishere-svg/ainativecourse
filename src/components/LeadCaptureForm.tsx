@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import styles from './LeadCaptureForm.module.css';
 
-export default function LeadCaptureForm() {
+export default function LeadCaptureForm({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
   const [formData, setFormData] = useState({
     name: '',
     mobile: ''
@@ -13,7 +13,6 @@ export default function LeadCaptureForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [currentDate, setCurrentDate] = useState('');
 
-  // Get date only on client side to avoid hydration mismatch
   useEffect(() => {
     setCurrentDate(new Date().toISOString());
   }, []);
@@ -22,7 +21,6 @@ export default function LeadCaptureForm() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Combine visible fields with hidden requirements
     const payload = {
       ...formData,
       course: 'AI NATIVE DESIGN THINKING',
@@ -30,11 +28,9 @@ export default function LeadCaptureForm() {
       registered: new Date().toISOString()
     };
     
-    // Log the exact structure requested by the user
     console.log('LEAD CAPTURE DATA (Ready for API):');
     console.table([payload]);
     
-    // Simulate API request delay
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
@@ -47,6 +43,8 @@ export default function LeadCaptureForm() {
       [e.target.name]: e.target.value
     }));
   };
+
+  const isDark = variant === 'dark';
 
   if (isSuccess) {
     return (
@@ -61,7 +59,7 @@ export default function LeadCaptureForm() {
   }
 
   return (
-    <div className={styles.bannerWrapper}>
+    <div className={`${styles.bannerWrapper} ${isDark ? styles.bannerDark : styles.bannerLight}`}>
       <div className={styles.bannerContent}>
         <h3 className={styles.bannerTitle}>Ready to build your own system?</h3>
         <p className={styles.bannerText}>
@@ -76,7 +74,6 @@ export default function LeadCaptureForm() {
 
       <div className={styles.formContainer}>
         <form onSubmit={handleSubmit}>
-          {/* Hidden Fields for form scrapers/standard submits if needed later */}
           <input type="hidden" name="course" value="AI NATIVE DESIGN THINKING" />
           <input type="hidden" name="campaign" value="AI NATIVE DESIGN THINKING" />
           <input type="hidden" name="registered" value={currentDate} />
