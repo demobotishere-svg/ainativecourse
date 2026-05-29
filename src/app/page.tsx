@@ -7,14 +7,8 @@ import Navbar from '@/components/sections/Navbar';
 import HeroSection from '@/components/sections/HeroSection';
 import OutcomesSection from '@/components/sections/OutcomesSection';
 import WhoIsItForSection from '@/components/sections/WhoIsItForSection';
-import AuditSection from '@/components/sections/AuditSection';
-import CurriculumSection from '@/components/sections/CurriculumSection';
-import BeyondJobSection from '@/components/sections/BeyondJobSection';
-import HonestAnswerSection from '@/components/sections/HonestAnswerSection';
 import InstructorSection from '@/components/sections/InstructorSection';
-import FitCheckSection from '@/components/sections/FitCheckSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
-import FAQSection from '@/components/sections/FAQSection';
 import MatrixCTASection from '@/components/sections/MatrixCTASection';
 import Footer from '@/components/sections/Footer';
 
@@ -69,14 +63,8 @@ export default function Home() {
       <HeroSection />
       <OutcomesSection />
       <WhoIsItForSection />
-      <AuditSection />
-      <CurriculumSection />
-      <BeyondJobSection />
-      <HonestAnswerSection />
       <InstructorSection />
-      <FitCheckSection />
       <TestimonialsSection />
-      <FAQSection />
       <MatrixCTASection />
       <Footer />
     </main>

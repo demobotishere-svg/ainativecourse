@@ -1,15 +1,15 @@
 :root {
   --bg-color: #ffffff;
   --text-primary: #111827;
-  --text-secondary: #4b5563;
-  --text-tertiary: #6b7280;
+  --text-secondary: rgba(0, 0, 0, 0.65);
+  --text-tertiary: rgba(0, 0, 0, 0.4);
   --accent-teal: #027a88;
   --accent-teal-hover: #02636e;
   --accent-orange: #c45f0e;
   --accent-orange-light: rgba(196, 95, 14, 0.1); 
   --accent-orange-border: rgba(196, 95, 14, 0.4);
   --card-bg: #ffffff;
-  --card-border: #e5e7eb;
+  --card-border: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -24,9 +24,9 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-color);
   background-image: 
-    linear-gradient(rgba(2, 122, 136, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(2, 122, 136, 0.08) 1px, transparent 1px);
-  background-size: 50px 50px;
+    linear-gradient(rgba(2, 122, 136, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 122, 136, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px, 50px 50px;
   background-position: 0 0;
   background-attachment: fixed;
   color: var(--text-primary);
@@ -52,6 +52,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: 700;
   color: var(--text-primary);
+  letter-spacing: -0.04em;
 }
 
 ::selection {
@@ -162,13 +163,13 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--accent-teal);
   color: white;
   box-shadow: 0 4px 12px rgba(2, 122, 136, 0.25);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-teal:hover {
   background-color: var(--accent-teal-hover);
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(2, 122, 136, 0.4);
+  box-shadow: 0 16px 32px rgba(2, 122, 136, 0.4), inset 0 2px 0 rgba(255,255,255,0.2);
 }
 
 .btn-outline {
@@ -255,11 +256,24 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
+.sectionTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+}
+
 .section-white {
-  background-color: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0.8) 90%, rgba(255, 255, 255, 0));
   backdrop-filter: blur(12px);
-  border-top: 1px solid var(--card-border);
-  border-bottom: 1px solid var(--card-border);
+  border: none;
 }
 
 /* Premium Cards with Spotlight effect */
@@ -268,7 +282,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 2.5rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   position: relative;
   overflow: hidden;
@@ -289,8 +303,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 30px 40px -10px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   border-color: rgba(2, 122, 136, 0.3);
 }
 
@@ -317,8 +331,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Scroll Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.active {

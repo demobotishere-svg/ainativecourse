@@ -3,38 +3,55 @@ import LeadCaptureForm from '@/components/LeadCaptureForm';
 
 export default function TestimonialsSection() {
   const testimonials = [
-    { quote: "I stopped collecting AI tools. I now actually use three of them, deeply. That alone was worth it.", author: "Aanya R.", title: "Brand marketer, FMCG" },
-    { quote: "I'm a lawyer. I assumed this wasn't for me. It was the most for me. We rebuilt my contract review process in a weekend.", author: "S. Mehta", title: "Corporate lawyer" },
-    { quote: "The 10-task audit broke my brain in the best way. Four of my ten weren't even worth doing — AI or not.", author: "Karthik V.", title: "Operations lead" },
-    { quote: "First course in years where I didn't feel sold to at the end. Just… taught.", author: "Priya N.", title: "Product manager" },
-    { quote: "Built a small chatbot for my clinic intake. Saves my receptionist an hour every morning.", author: "Dr. Anand", title: "Dentist, solo practice" },
-    { quote: "I launched a paid newsletter the month after. Not life-changing money — but it pays for itself, and it kept going.", author: "Riya S.", title: "HR consultant" },
-    { quote: "I was terrified of the word 'agent'. Now I've designed two for my sales workflow and one is actually live.", author: "Vikram T.", title: "B2B sales" },
-    { quote: "Came in expecting prompts. Left with a way of thinking. Different thing entirely.", author: "Meera", title: "School principal" }
+    { text: "Seedora: A plant growing community app which encourages students to grow plants and monitor their growth. Built from scratch.", name: "Advait Swaminathan", role: "9th Grade Student", initial: "A" },
+    { text: "Ipposales: A high-end independent chatbot built entirely without any traditional tech background.", name: "Ananya Krishnan", role: "Marketing Executive", initial: "A" },
+    { text: "Automated a complete employee onboarding portal integrating 4 different HR tools. Built over a weekend with zero coding experience.", name: "Karthik Venkat", role: "HR Manager", initial: "K" },
+    { text: "Custom lead generation agent that handles Instagram DMs, qualifies leads, and books gym trials. I don't know what an API is.", name: "Meera Iyer", role: "Local Gym Owner", initial: "M" },
+    { text: "A complete inventory management dashboard that reads supplier emails and updates stock automatically. Never taken a CS class.", name: "Arjun Reddy", role: "Restaurant Manager", initial: "A" },
+    { text: "An automated contract review system that flags missing clauses. I'm a lawyer, not a software engineer.", name: "Priya Nair", role: "Corporate Counsel", initial: "P" }
   ];
 
   return (
-    <section className="section">
+    <section id="testimonials" className="section section-white">
       <div className="container">
         <div className={`${styles.centerHeader} reveal`}>
-          <div className="badge-outline" style={{marginBottom: '1rem'}}>Testimonials</div>
-          <h2 className="sectionTitle">What people say afterwards.</h2>
-          <p className="paragraph">From earlier cohorts & 1:1 sessions. Lightly edited for length.</p>
+          <div className="badge-outline" style={{marginBottom: '1rem'}}>Alumni Projects</div>
+          <h2 className="sectionTitle">What people built <span className="highlight-orange">afterwards.</span></h2>
+          <p className="paragraph">Real things built by our community.</p>
         </div>
         
-        <div className={`${styles.masonryGrid} reveal delay-100`}>
-          {testimonials.map((test, i) => (
-            <div key={i} className={styles.testimonialCard}>
-              <p className={styles.quote}>"{test.quote}"</p>
-              <div className={styles.authorBox}>
-                <div className={styles.authorAvatar}>{test.author.charAt(0)}</div>
-                <div>
-                  <div className={styles.authorName}>{test.author}</div>
-                  <div className={styles.authorTitle}>{test.title}</div>
+        <div className={styles.marqueeContainer}>
+          <div className={styles.marqueeTrack}>
+            {testimonials.map((test, i) => (
+              <div key={i} className={styles.projectCardWrapper}>
+                <div className={`${styles.testimonialCard} ${styles.projectCard}`}>
+                  <p className={styles.quote}>"{test.text}"</p>
+                  <div className={styles.authorBox}>
+                    <div className={styles.authorAvatar}>{test.initial}</div>
+                    <div>
+                      <div className={styles.authorName}>{test.name}</div>
+                      <div className={styles.authorTitle}>{test.role}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+            {/* Duplicate for infinite loop */}
+            {testimonials.map((test, i) => (
+              <div key={`dup-${i}`} className={styles.projectCardWrapper}>
+                <div className={`${styles.testimonialCard} ${styles.projectCard}`}>
+                  <p className={styles.quote}>"{test.text}"</p>
+                  <div className={styles.authorBox}>
+                    <div className={styles.authorAvatar}>{test.initial}</div>
+                    <div>
+                      <div className={styles.authorName}>{test.name}</div>
+                      <div className={styles.authorTitle}>{test.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div style={{marginTop: '5rem', display: 'flex', justifyContent: 'center'}} className="reveal">

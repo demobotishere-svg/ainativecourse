@@ -7,7 +7,7 @@ export default function OutcomesSection() {
       <div className="container">
         <div className={`${styles.centerHeader} reveal`}>
           <div className="badge-outline" style={{marginBottom: '1.5rem'}}>Industry insight</div>
-          <h2 className="sectionTitle" style={{fontSize: '3rem'}}>The new math: <br/><span className="text-orange">1 Person + AI = Total Powerhouse</span></h2>
+          <h2 id="outcomes" className="sectionTitle" style={{fontSize: '3rem'}}>The new math: <br/><span className="text-orange">1 Person + AI = Total Powerhouse</span></h2>
         </div>
         
         <div className={`${styles.mathSection} reveal delay-100`}>
@@ -41,7 +41,7 @@ export default function OutcomesSection() {
           <div>
             <h3 className={styles.mathBlockTitle}>The AI-Native System (What You Become)</h3>
             <div className={styles.becomeCardsGrid}>
-              <div className={styles.transformationCard}>
+              <div className={`${styles.transformationCard} card`} style={{padding: 0}}>
                 <div className={styles.manualSide}>
                   <span className={styles.sideLabel}>Old Way</span>
                   <p className={styles.becomeStrike}>Typing meeting summaries</p>
@@ -55,7 +55,7 @@ export default function OutcomesSection() {
                 </div>
               </div>
 
-              <div className={styles.transformationCard}>
+              <div className={`${styles.transformationCard} card`} style={{padding: 0}}>
                 <div className={styles.manualSide}>
                   <span className={styles.sideLabel}>Old Way</span>
                   <p className={styles.becomeStrike}>Digging for data</p>
@@ -69,7 +69,7 @@ export default function OutcomesSection() {
                 </div>
               </div>
 
-              <div className={styles.transformationCard}>
+              <div className={`${styles.transformationCard} card`} style={{padding: 0}}>
                 <div className={styles.manualSide}>
                   <span className={styles.sideLabel}>Old Way</span>
                   <p className={styles.becomeStrike}>Manual scheduling</p>

@@ -3,7 +3,7 @@ import LeadCaptureForm from '@/components/LeadCaptureForm';
 
 export default function BeyondJobSection() {
   return (
-    <section className="section">
+    <section id="beyond-job" className="section">
       <div className="container">
          <div className={styles.twoColumn} style={{alignItems: 'center'}}>
            <div className="reveal">

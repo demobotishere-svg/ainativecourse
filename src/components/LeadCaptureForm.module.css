@@ -3,27 +3,24 @@
   max-width: 650px;
   margin: 0 auto;
   padding: 3rem;
-  background-color: #d8f5ec;
-  background-image: 
-    linear-gradient(rgba(0, 160, 120, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 160, 120, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
   position: relative;
-  border-radius: 24px;
 }
 
 .formWrapper::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 24px;
-  background: radial-gradient(circle, rgba(140, 230, 200, 0.4) 0%, transparent 70%);
+  top: -10%;
+  right: -10%;
+  width: 80%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(14, 210, 150, 0.25);
+  filter: blur(80px);
   z-index: 0;
   pointer-events: none;
 }
+
+
 
 .formContainer {
   background: rgba(255, 255, 255, 0.7);

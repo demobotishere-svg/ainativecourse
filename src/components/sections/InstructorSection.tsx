@@ -10,7 +10,7 @@ export default function InstructorSection() {
             <img src="/images/instructor_portrait.png" alt="Instructor Profile" className={styles.contentImage} style={{borderRadius: '500px 500px 20px 20px'}} />
           </div>
           <div className="reveal delay-100">
-            <div className="badge-outline" style={{marginBottom: '1rem', marginLeft: 0}}>About the instructor</div>
+            <div className="badge-outline" style={{marginBottom: '1rem', marginLeft: 0}}>About me</div>
             <h2 className="sectionTitle" style={{textAlign: 'left'}}>An engineer who actually ships AI — <span className="underline-orange">not a course-selling influencer.</span></h2>
             <p className="paragraph" style={{textAlign: 'left'}}>I've spent the last few years building agents, retrieval systems, and chatbots that real teams use in production. Before that, years of regular software and product work — so I know what it looks like to sit in a meeting and quietly wonder how much of this could be automated.</p>
             <p className="paragraph" style={{textAlign: 'left'}}>I teach this because every working professional in my life — doctors, lawyers, marketers, founders, friends in HR — kept asking me the same questions, and the honest answers weren't anywhere on the internet.</p>
